@@ -10,13 +10,13 @@
 
 <body>
 
-    <a href="http://127.0.0.1:8000">На Главную</a>
+    <a href="https://mi-shariki-tomsk.ru">На Главную</a>
 
     <div class="admin-container">
         <!-- Блок создания категории -->
         <div class="admin-block">
             <h2>Создание категории</h2>
-            <form action="http://127.0.0.1:8000/admin/categories/add" method="post">
+            <form action="https://mi-shariki-tomsk.ru/admin/categories/add" method="post">
                 <label for="category-name">Название категории</label>
                 <input type="text" id="category-name" name="name" required>
                 <button type="submit">Создать</button>
@@ -27,7 +27,7 @@
         <!-- Блок создания продукта -->
         <div class="admin-block">
             <h2>Создание продукта</h2>
-            <form action="http://127.0.0.1:8000/admin/products/add" method="post">
+            <form action="https://mi-shariki-tomsk.ru/admin/products/add" method="post">
                 <label for="product-name">Название продукта</label>
                 <input type="text" id="product-name" name="name" required>
 
@@ -73,10 +73,10 @@
                 <tr>
                     <td>{{ category.name }}</td>
                     <td>
-                        <form action="http://127.0.0.1:8000/admin/categories/{{ category.id }}" method="get" style="display:inline;">
+                        <form action="https://mi-shariki-tomsk.ru/admin/categories/{{ category.id }}" method="get" style="display:inline;">
                             <button type="submit" class="edit-button">Изменить</button>
                         </form>
-                        <form action="http://127.0.0.1:8000/admin/categories/{{ category.id }}/delete" method="post" style="display:inline;">
+                        <form action="https://mi-shariki-tomsk.ru/admin/categories/{{ category.id }}/delete" method="post" style="display:inline;">
                             <button type="submit" class="delete-button">Удалить</button>
                         </form>
                     </td>
@@ -107,10 +107,10 @@
                     <td>{{ product.price }} ₽</td>
                     <td>{{ product.old_price }}</td>
                     <td>
-                        <form action="http://127.0.0.1:8000/admin/products/{{ product.id }}" method="get" style="display:inline;">
+                        <form action="https://mi-shariki-tomsk.ru/admin/products/{{ product.id }}" method="get" style="display:inline;">
                             <button type="submit" class="edit-button">Изменить</button>
                         </form>
-                        <form action="http://127.0.0.1:8000/admin/products/{{ product.id }}/delete" method="post" style="display:inline;">
+                        <form action="https://mi-shariki-tomsk.ru/admin/products/{{ product.id }}/delete" method="post" style="display:inline;">
                             <button type="submit" class="delete-button">Удалить</button>
                         </form>
                     </td>
@@ -165,7 +165,7 @@
                     <td>{{ product.price }} ₽</td>
                     <td>{{ product.old_price }}</td>
                     <td>
-                        <form action="http://127.0.0.1:8000/admin/popular_product/{{ product.id }}" method="get" style="display:inline;">
+                        <form action="https://mi-shariki-tomsk.ru/admin/popular_product/{{ product.id }}" method="get" style="display:inline;">
                             <button type="submit" class="edit-button">Изменить</button>
                         </form>
 
