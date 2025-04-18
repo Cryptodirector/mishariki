@@ -11,7 +11,7 @@
         <h2>Изменить продукт</h2>
         {% for product in products %}
 
-        <form action="http://127.0.0.1:8000/admin/products/{{ product.id }}/update" method="post">
+        <form action="https://mi-shariki-tomsk.ru/admin/products/{{ product.id }}/update" method="post">
 
                 <label for="product-name">Название продукта</label>
                 <input type="text" id="product-name" value="{{ product.name }}" name="name" required>
