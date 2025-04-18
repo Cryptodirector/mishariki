@@ -32,6 +32,14 @@ from app.backend.service.v1.order import get_product_for_order
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.mount("/static", StaticFiles(directory="app/frontend/static"), name="static")
 app.add_middleware(GuestUserMiddleware)
 app.include_router(user_router)
