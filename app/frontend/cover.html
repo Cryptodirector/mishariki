@@ -10,7 +10,7 @@
     <div class="admin-block">
         <h2>Изменить фото обложки</h2>
         {% for cover in covers %}
-            <form action="http://127.0.0.1:8000/admin/cover/{{ cover.id }}/update" method="post">
+            <form action="https://mi-shariki-tomsk.ru/admin/cover/{{ cover.id }}/update" method="post">
                     <label for="product-name">Фото</label>
                     <input type="text" id="product-name" value="{{ cover.url }}" name="url" required>
                 <button type="submit">Изменить</button>
