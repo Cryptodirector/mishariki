@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Продукт</title>
+    <link href="{{ url_for('static', path='css/style.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', path='images/favicon.ico') }}" type="image/x-icon" /> <!-- Assets -->
+</head>
+<body>
+    <div class="admin-block">
+        <h2>Изменить продукт</h2>
+        {% for product in products %}
+
+        <form action="http://127.0.0.1:8000/admin/products/{{ product.id }}/update" method="post">
+
+                <label for="product-name">Название продукта</label>
+                <input type="text" id="product-name" value="{{ product.name }}" name="name" required>
+
+                <br>
+                <br>
+                <label for="product-descriptions">Описание</label>
+                <input type="text" id="product-descriptions" value="{{ product.descriptions }}" name="descriptions" step="0.01" required>
+
+                <label for="product-price">Цена</label>
+                <input type="number" id="product-price" value="{{ product.price }}" name="price" step="0.01">
+
+                 <label for="product-old_price">Старая цена</label>
+                <input type="number" id="product-old_price" value="{{ product.old_price }}" name="old_price" step="0.01">
+
+                <label for="product-photo">Фото</label>
+                <input type="text" id="product-photo" value="{{ product.url_photo }}" name="url_photo" step="0.01">
+        {% endfor %}
+
+            <button type="submit">Изменить</button>
+        </form>
+    </div>
+</body>
+</html>

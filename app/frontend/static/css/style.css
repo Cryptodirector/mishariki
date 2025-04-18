@@ -1,0 +1,553 @@
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+.site-header {
+    position: relative; /* Для позиционирования текста поверх картинки */
+    width: 100%; /* На всю ширину экрана */
+    text-align: center; /* Центрируем текст */
+}
+
+.site-header img {
+    width: 75%; /* Растягиваем на 90% ширины экрана */
+    height: 350px; /* Автоматическая высота для сохранения пропорций */
+    max-height: 400px; /* Ограничиваем максимальную высоту */
+}
+
+/* Адаптивность для экранов до 1200px */
+@media (max-width: 1200px) {
+    .site-header img {
+        width: 100%; /* На экранах меньше 1200px картинка растягивается на 100% */
+        height: auto; /* Высота сохраняет пропорции */
+    }
+}
+
+/* Адаптивность для экранов до 768px */
+@media (max-width: 768px) {
+    .site-header img {
+        width: 100%; /* Растягиваем изображение на всю ширину экрана */
+        height: auto; /* Высота автоматически сохраняет пропорции */
+        max-height: 300px; /* Ограничиваем высоту для мобильных устройств */
+    }
+}
+
+/* Адаптивность для экранов до 480px */
+@media (max-width: 480px) {
+    .site-header img {
+        width: 100%; /* Растягиваем на всю ширину экрана */
+        height: auto; /* Высота по пропорциям */
+        max-height: 250px; /* Ограничиваем высоту для мобильных экранов */
+    }
+}
+
+
+/* Белый контейнер */
+.white-container {
+    background-color: white;
+    width: 100%; /* Растягиваем контейнер на всю ширину */
+    padding: 20px 0; /* Отступы сверху и снизу */
+}
+
+/* Контейнер для ссылок */
+.links-container {
+    text-align: center; /* Центрируем ссылки */
+}
+
+.link {
+    display: inline-block; /* Сделаем ссылки блочными, но в одну строку */
+    margin: 0 20px; /* Отступы между ссылками */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333; /* Цвет текста */
+    font-size: 18px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    padding: 10px 20px; /* Отступы внутри ссылок */
+    background-color: #f4f4f4; /* Цвет фона для ссылок */
+    border-radius: 8px; /* Округленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для ссылок */
+    transition: background-color 0.3s; /* Плавное изменение фона при наведении */
+}
+
+/* Эффект при наведении */
+.link:hover {
+    background-color: #e74c3c; /* Цвет фона при наведении */
+    color: white; /* Белый цвет текста */
+}
+
+/* Адаптивность для мобильных устройств (ширина экрана до 768px) */
+@media (max-width: 768px) {
+    .link {
+        font-size: 16px; /* Уменьшаем размер шрифта */
+        padding: 8px 15px; /* Уменьшаем отступы внутри ссылок */
+        margin: 10px 0; /* Отступы между ссылками вертикальные */
+    }
+
+    .links-container {
+        display: flex; /* Используем flexbox */
+        flex-direction: column; /* Выстраиваем ссылки в столбик */
+        align-items: center; /* Центрируем ссылки */
+    }
+}
+
+/* Адаптивность для мобильных устройств (ширина экрана до 480px) */
+@media (max-width: 480px) {
+    .link {
+        font-size: 14px; /* Еще больше уменьшаем размер шрифта */
+        padding: 6px 12px; /* Меньшие отступы */
+    }
+}
+
+
+
+
+/* Контейнер с товарами */
+.product-container {
+    width: 2000px;
+    height: 1000px;
+    display: flex;
+    flex-wrap: wrap; /* Чтобы блоки переносились на следующую строку, если они не помещаются */
+    gap: 30px; /* Расстояние между блоками */
+    padding: 5px; /* Отступы внутри контейнера */
+    margin-left: 20px;
+
+}
+
+/* Блок товара */
+.product-block {
+    width: 300px;
+    height: 320px;
+    border-radius: 30px;
+    background-color: white;
+}
+
+.product-image {
+    width: 300px;
+    height: 300px; /* Высота контейнера */
+    border-radius: 10px;
+}
+
+.product-image img {
+    margin-left: 50px;
+    margin-top: 30px;
+    width: 200px; /* Изображение растягивается по ширине контейнера */
+    height: 200px; /* Изображение растягивается по высоте контейнера */
+    border-radius: 10px;
+}
+
+.product-info {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.product-name {
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+    text-align: center;
+}
+
+.product-price {
+    font-size: 14px;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+/* Адаптация для экранов до 768px */
+@media (max-width: 768px) {
+    .product-container {
+        width: 100%; /* Контейнер занимает всю ширину */
+        gap: 10px; /* Расстояние между блоками */
+        padding: 5px; /* Отступы */
+        margin-left: 0; /* Убираем отступ слева */
+    }
+
+    .product-block {
+        width: 140px; /* Уменьшенная ширина блока */
+        height: 180px; /* Пропорциональная высота */
+        border-radius: 15px; /* Округление углов */
+        display: flex; /* Для центрирования контента */
+        flex-direction: column; /* Располагаем элементы по вертикали */
+        align-items: center; /* Горизонтальное центрирование */
+        justify-content: space-between; /* Равномерное распределение */
+        padding: 10px; /* Внутренние отступы */
+    }
+
+    .product-image {
+        width: 120px; /* Ширина контейнера под изображение */
+        height: 120px; /* Высота контейнера */
+        display: flex; /* Центрирование изображения */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-image img {
+        width: 100px; /* Ширина изображения */
+        height: 100px; /* Высота изображения */
+        border-radius: 10px;
+        margin-left: 5px;
+        margin-top: 50px;
+    }
+
+    .product-info {
+        text-align: center;
+        margin: 0; /* Убираем отступы */
+    }
+
+    .product-name {
+        font-size: 12px; /* Уменьшенный размер шрифта */
+        margin-top: 5px;
+    }
+
+    .product-price {
+        font-size: 12px; /* Уменьшенный размер шрифта */
+        margin-top: 5px;
+        color: #e74c3c;
+    }
+}
+
+/* Адаптация для экранов до 480px */
+@media (max-width: 480px) {
+    .product-block {
+        width: 110px; /* Минимальная ширина блока */
+        height: 140px; /* Минимальная высота блока */
+        border-radius: 10px; /* Сохраняем плавные углы */
+    }
+
+    .product-image {
+        width: 100px; /* Размер контейнера под изображение */
+        height: 100px; /* Пропорциональная высота контейнера */
+    }
+
+    .product-image img {
+        width: 80px; /* Маленькое изображение */
+        height: 80px; /* Пропорциональная высота изображения */
+        margin-left: 5px;
+        border-radius: 10px;
+    }
+
+    .product-name {
+        font-size: 10px; /* Минимальный размер шрифта */
+        margin-top: 1px;
+    }
+
+    .product-price {
+        font-size: 10px; /* Минимальный размер шрифта */
+        margin-top: 2px;
+        color: #e74c3c;
+    }
+}
+
+
+
+
+
+
+/* Адаптация для экранов до 480px */
+@media (max-width: 480px) {
+    .catalog {
+        width: 100%; /* Боковая панель становится полноэкранной */
+        margin-bottom: 15px;
+    }
+    .product-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ещё меньше блоки */
+        gap: 8px;
+    }
+    .product-block {
+        max-width: 150px;
+    }
+    .product-image {
+        max-width: 100px;
+        height: 100px;
+    }
+}
+
+.h2-block {
+    margin-top: 20px;
+    display: flex; /* Выравнивание контента в блоке */
+    flex-direction: column; /* Все элементы по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+    justify-content: center; /* Центрирование по вертикали */
+    background-color: #fff; /* Белый фон */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    text-align: center; /* Выравнивание текста */
+}
+
+
+/* Общий контейнер для страницы */
+.layout {
+    display: flex; /* Flexbox для размещения каталога и контента */
+    width: 100%;
+    height: 100vh; /* Высота на весь экран */
+    margin-top: 1px;
+}
+
+/* Каталог */
+.catalog {
+    width: 200px; /* Уменьшенная ширина */
+    background-color: #f4f4f4; /* Светлый фон */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Тень справа */
+    overflow-y: auto; /* Скролл для длинного каталога */
+    text-align: center;
+}
+
+
+.catalog ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+}
+
+.catalog li {
+    margin-bottom: 25px; /* Увеличенные отступы между пунктами */
+}
+
+.catalog a {
+    display: block; /* Ссылка занимает всю ширину */
+    text-decoration: none; /* Убираем подчеркивание ссылок */
+    color: #333; /* Цвет текста */
+    font-size: 16px; /* Увеличенный размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    padding: 8px 10px; /* Отступы внутри каждой ссылки */
+    background-color: #fff; /* Белый фон для ссылок */
+    border-radius: 8px; /* Округление углов */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для ссылки */
+    transition: all 0.3s ease; /* Анимация для изменений */
+}
+
+.catalog a:hover {
+    background-color: #e74c3c; /* Красный фон при наведении */
+    color: #fff; /* Белый текст */
+    transform: scale(1.05); /* Легкое увеличение */
+}
+
+/* Адаптация для экранов до 768px */
+@media (max-width: 768px) {
+    .catalog {
+        width: 150px; /* Уменьшаем ширину для средних экранов */
+        padding: 15px; /* Уменьшаем отступы */
+    }
+
+    .catalog a {
+        font-size: 14px; /* Уменьшаем размер текста */
+        padding: 6px 8px; /* Уменьшаем внутренние отступы */
+    }
+
+    .catalog li {
+        margin-bottom: 15px; /* Уменьшаем отступы между элементами */
+    }
+}
+
+/* Адаптация для экранов до 480px */
+@media (max-width: 480px) {
+    .catalog {
+        width: 120px; /* Ещё меньше ширина для маленьких экранов */
+        padding: 10px; /* Уменьшаем отступы */
+    }
+
+    .catalog a {
+        font-size: 12px; /* Ещё меньше размер текста */
+        padding: 5px 6px; /* Ещё меньше внутренние отступы */
+    }
+
+    .catalog li {
+        margin-bottom: 10px; /* Ещё меньше отступы между элементами */
+    }
+}
+
+
+
+/* Основной контент */
+.main-content {
+    flex-grow: 1; /* Занимает оставшуюся ширину */
+    background-color: #ffffff; /* Белый фон */
+    padding: 20px;
+    overflow-y: auto; /* Скролл, если контент превышает высоту экрана */
+}
+
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex; /* Flexbox для контейнера */
+    flex-direction: column; /* Элементы располагаются вертикально */
+    justify-content: center; /* Центрируем по вертикали */
+    align-items: center; /* Центрируем по горизонтали */
+    text-align: center; /* Центрируем текст */
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+label {
+    margin: 5px 0;
+    font-size: 14px;
+    align-self: flex-start; /* Выравниваем текст label по левому краю */
+}
+
+input {
+    width: 100%; /* Растягиваем на всю ширину контейнера */
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box; /* Учитываем отступы внутри ширины */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+.admin-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.admin-block {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    width: 100px;
+}
+
+
+.table-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.product-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.edit-button, .delete-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 5px;
+}
+
+.edit-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+.terms-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.terms-content h2 {
+  font-size: 1.5rem;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.terms-content p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.terms-content a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.terms-content a:hover {
+  text-decoration: underline;
+}

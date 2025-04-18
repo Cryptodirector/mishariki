@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="{{ url_for('static', path='css/style.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', path='images/favicon.ico') }}" type="image/x-icon" /> <!-- Assets -->
+</head>
+
+<body>
+
+    <a href="http://127.0.0.1:8000">На Главную</a>
+
+    <div class="admin-container">
+        <!-- Блок создания категории -->
+        <div class="admin-block">
+            <h2>Создание категории</h2>
+            <form action="http://127.0.0.1:8000/admin/categories/add" method="post">
+                <label for="category-name">Название категории</label>
+                <input type="text" id="category-name" name="name" required>
+                <button type="submit">Создать</button>
+            </form>
+        </div>
+
+
+        <!-- Блок создания продукта -->
+        <div class="admin-block">
+            <h2>Создание продукта</h2>
+            <form action="http://127.0.0.1:8000/admin/products/add" method="post">
+                <label for="product-name">Название продукта</label>
+                <input type="text" id="product-name" name="name" required>
+
+                <label for="product-category">Категория</label>
+                <select id="product-category" name="categories_id" required>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}" name="categories_id">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+
+                <br>
+                <br>
+                <label for="product-price">Цена</label>
+                <input type="number" id="product-price" name="price" step="0.01" required>
+
+                <label for="product-old_price">Старая цена</label>
+                <input type="number" id="product-old_price" name="old_price" step="0.01" required>
+
+                <label for="product-descriptions">Описание</label>
+                <input type="text" id="product-descriptions" name="descriptions" step="0.01">
+
+                <label for="product-photo">Фото</label>
+                <input type="text" id="product-photo" name="url_photo" step="0.01">
+
+                <button type="submit">Создать продукт</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="table-container">
+        <h2>Список категорий</h2>
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.name }}</td>
+                    <td>
+                        <form action="http://127.0.0.1:8000/admin/categories/{{ category.id }}" method="get" style="display:inline;">
+                            <button type="submit" class="edit-button">Изменить</button>
+                        </form>
+                        <form action="http://127.0.0.1:8000/admin/categories/{{ category.id }}/delete" method="post" style="display:inline;">
+                            <button type="submit" class="delete-button">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="table-container">
+        <h2>Список продуктов</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Фото</th>
+                    <th>Наименование</th>
+                    <th>Описание</th>
+                    <th>Цена</th>
+                    <th>Старая цена</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td><img src="{{ product.url_photo }}" class="product-image"></td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.descriptions }}</td>
+                    <td>{{ product.price }} ₽</td>
+                    <td>{{ product.old_price }}</td>
+                    <td>
+                        <form action="http://127.0.0.1:8000/admin/products/{{ product.id }}" method="get" style="display:inline;">
+                            <button type="submit" class="edit-button">Изменить</button>
+                        </form>
+                        <form action="http://127.0.0.1:8000/admin/products/{{ product.id }}/delete" method="post" style="display:inline;">
+                            <button type="submit" class="delete-button">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+<!--    <div class="table-container">-->
+<!--        <h2>Обложка</h2>-->
+<!--        <table>-->
+<!--            <thead>-->
+<!--                <tr>-->
+<!--                    <th>Фото</th>-->
+<!--                    <th>Действия</th>-->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--                {% for photo in photos %}-->
+<!--                <tr>-->
+<!--                    <td><img src="{{ photo.url }}" class="product-image"></td>-->
+<!--                    <td>-->
+<!--                        <form action="http://127.0.0.1:8000/admin/cover/{{ photo.id }}" method="get" style="display:inline;">-->
+<!--                            <button type="submit" class="edit-button">Изменить</button>-->
+<!--                        </form>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                {% endfor %}-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+
+    <div class="table-container">
+        <h2>Популярные товары</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Фото</th>
+                    <th>Наименование</th>
+                    <th>Описание</th>
+                    <th>Цена</th>
+                    <th>Старая цена</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in popular_products %}
+                <tr>
+                    <td><img src="{{ product.url_photo }}" class="product-image"></td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.descriptions }}</td>
+                    <td>{{ product.price }} ₽</td>
+                    <td>{{ product.old_price }}</td>
+                    <td>
+                        <form action="http://127.0.0.1:8000/admin/popular_product/{{ product.id }}" method="get" style="display:inline;">
+                            <button type="submit" class="edit-button">Изменить</button>
+                        </form>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

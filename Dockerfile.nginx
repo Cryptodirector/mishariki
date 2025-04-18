@@ -1,0 +1,5 @@
+FROM nginx:alpine
+
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY app/frontend/ssl/ /etc/nginx/ssl/
+COPY app/frontend/static/ /app/frontend/static/
