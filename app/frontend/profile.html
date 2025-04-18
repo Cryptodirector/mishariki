@@ -769,7 +769,7 @@
                         data-field-left-res-640-value="470" data-field-width-res-640-value="50"
                         data-field-widthmode-res-640-value="fixed" data-field-top-res-960-value="54"
                         data-field-left-res-960-value="570" data-field-width-res-960-value="94"
-                        data-field-widthmode-res-960-value="fixed"> <a class='tn-atom' href="http://127.0.0.1:8000/#Онас">О нас</a> </div>
+                        data-field-widthmode-res-960-value="fixed"> <a class='tn-atom' href="https://mi-shariki-tomsk.ru/#Онас">О нас</a> </div>
                     <div class='t396__elem tn-elem tn-elem__9491259561744012819456' data-elem-id='1744012819456'
                         data-elem-type='button' data-field-top-value="51" data-field-left-value="680"
                         data-field-height-value="43" data-field-width-value="114" data-field-axisy-value="top"
@@ -782,7 +782,7 @@
                         data-field-widthmode-res-640-value="fixed" data-field-top-res-960-value="54"
                         data-field-left-res-960-value="666" data-field-width-res-960-value="94"
                         data-field-widthmode-res-960-value="fixed">
-                        <a class='tn-atom' href="http://127.0.0.1:8000/#Отзывы">Отзывы</a>
+                        <a class='tn-atom' href="https://mi-shariki-tomsk.ru/#Отзывы">Отзывы</a>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__9491259561744114704569' data-elem-id='1744114704569'
                         data-elem-type='button' data-field-top-value="54" data-field-left-value="380"
@@ -797,7 +797,7 @@
                         data-field-left-res-960-value="184" data-field-width-res-960-value="94"
                         data-field-widthmode-res-960-value="fixed">
                         <div class='tn-atom'>
-                            <a href="http://127.0.0.1:8000/contacts">Контакты</a>
+                            <a href="https://mi-shariki-tomsk.ru/contacts">Контакты</a>
                         </div>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__9491259561744012814129' data-elem-id='1744012814129'
@@ -827,7 +827,7 @@
                         data-field-left-res-960-value="278" data-field-height-res-960-value="43"
                         data-field-width-res-960-value="94" data-field-heightmode-res-960-value="fixed">
                         <div class='tn-atom'>
-                            <a href="http://127.0.0.1:8000/delivery">Доставка и оплата</a>
+                            <a href="https://mi-shariki-tomsk.ru/delivery">Доставка и оплата</a>
                         </div>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__9491259561744012426680' data-elem-id='1744012426680'
@@ -845,7 +845,7 @@
                         data-field-width-res-640-value="104" data-field-top-res-960-value="13"
                         data-field-left-res-960-value="410" data-field-height-res-960-value="127">
                         <div class='tn-atom'>
-                            <a href="http://127.0.0.1:8000/">
+                            <a href="https://mi-shariki-tomsk.ru/">
                                 <img class='tn-atom__img t-img'
                                     src="{{ url_for('static', path='images/tild6531-3136-4230-b365-323634313335__logo.jpg') }}"
                                     alt='Логотип'
@@ -867,7 +867,7 @@
                         data-field-height-res-640-value="57" data-field-top-res-960-value="47"
                         data-field-left-res-960-value="810" data-field-height-res-960-value="57">
                         <div class='tn-atom'>
-                            <a href="http://127.0.0.1:8000/profile">  <!-- Укажите нужный URL -->
+                            <a href="https://mi-shariki-tomsk.ru/profile">  <!-- Укажите нужный URL -->
                                 <img class='tn-atom__img t-img'
                                     src="{{ url_for('static', path='images/tild6130-3265-4337-b339-333564396563__free-icon-wicker-bas.png') }}"
                                     alt='Описание картинки' imgfield='tn_img_1744013439398'/>
@@ -939,7 +939,7 @@
                         <nav class="t450__menu">
                             <ul role="list" class="t450__list t-menu__list">
                                 {% for category in categories %}
-                                    <li class="t450__list_item"> <a class="t-menu__link-item " href="http://127.0.0.1:8000/categories/{{ category.id }}/products"
+                                    <li class="t450__list_item"> <a class="t-menu__link-item " href="https://mi-shariki-tomsk.ru/categories/{{ category.id }}/products"
                                             data-menu-submenu-hook="" data-menu-item-number="1">
                                             {{ category.name }}
                                         </a> </li>
@@ -1061,7 +1061,7 @@
                                             <!-- Кнопка "Убрать из корзины" только если товар есть в корзине -->
                                             <div class="t1025__btn-wrapper">
                                                 <div class="t1025__btn-row t1025__btn-first_wrapper t1002__btns-wrapper">
-                                                    <form action="http://127.0.0.1:8000/profile/products/delete/{{ link_id }}"
+                                                    <form action="https://mi-shariki-tomsk.ru/profile/products/delete/{{ link_id }}"
                                                           method="POST" class="remove-from-cart-form">
                                                         <input type="hidden" name="product_id" value="{{ product.id }}">
                                                         <button type="submit"
@@ -1195,7 +1195,7 @@
                             toast.classList.add('show');
 
                             // Обновить счётчик
-                            fetch('/users/count_prod_user')
+                            fetch('https://mi-shariki-tomsk.ru/users/count_prod_user')
                                 .then(res => res.json())
                                 .then(data => {
                                     const counter = document.getElementById('1234');
@@ -1312,13 +1312,13 @@
         <div id="order-modal" class="modal-overlay">
             <div class="modal-content">
                 <h2>Оформление заказа</h2>
-                <form id="modal-form" method="POST" action="/order">
+                <form id="modal-form" method="POST" action="https://mi-shariki-tomsk.ru/order">
                     <input type="hidden" name="products" id="modal-products">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Ваше имя" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" name="phone" placeholder="Телефон" required pattern="\+?[0-9\s\-]{7,15}">
+                        <input type="tel" name="phone" placeholder="Телефон">
                     </div>
                     <div class="form-actions">
                         <button type="submit">Подтвердить заказ</button>
@@ -1529,7 +1529,7 @@
             <div id="order-toast" class="cart-toast">Спасибо за заказ, мы скоро с вами свяжемся!</div>
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
-                    const orderForm = document.querySelector('form[action="http://127.0.0.1:8000/order"]');
+                    const orderForm = document.querySelector('form[action="https://mi-shariki-tomsk.ru/order"]');
                     const orderToast = document.getElementById('order-toast');
 
                     if (orderForm) {
