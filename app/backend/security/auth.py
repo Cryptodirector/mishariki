@@ -7,9 +7,9 @@ from starlette.responses import RedirectResponse
 router = APIRouter()
 
 fake_users_db = {
-    "Irina": {
-        "username": "Irina",
-        "password": "Irina_Mishariki_17.04.2025",
+    "": {
+        "username": "",
+        "password": "",
     }
 }
 
@@ -44,6 +44,6 @@ async def protected_page(request: Request, response: Response):
     if not session_token or session_token not in active_sessions:
         return False
     username = active_sessions[session_token]
-    if username != "Irina":
+    if username != "":
         return False
     return True
