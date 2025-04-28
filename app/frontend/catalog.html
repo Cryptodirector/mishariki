@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--metatextblock-->
     <title>Каталог</title>
+    <meta name="refresher" content="">
     <meta property="og:url" content="http://project12747247.tilda.ws" />
     <meta property="og:title" content="Главная" />
     <meta property="og:description" content="" />
@@ -35,7 +36,18 @@
     <noscript><link rel="stylesheet" href="https://mi-shariki-tomsk.ru/static/css/tilda-zoom-2.0.min.css" type="text/css" media="all" /></noscript>
     
     <script nomodule src="https://mi-shariki-tomsk.ru/static/js/tilda-polyfill-1.0.min.js" charset="utf-8"></script>
-    
+    <script>
+      window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+          // Страница вернулась из кэша
+          let meta = document.querySelector('meta[name="refresher"]');
+          if (meta) {
+            meta.setAttribute('http-equiv', 'refresh');
+            meta.setAttribute('content', '0');
+          }
+        }
+      });
+    </script>
     <script>
     function t_onReady(func) {
         if (document.readyState != 'loading') {
