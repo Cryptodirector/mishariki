@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="{{ url_for('static', path='images/favicon.ico') }}" type="image/x-icon" /> <!-- Assets -->
+  <title>Карточка товара</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#f3e9e0] flex items-center justify-center min-h-screen p-4">
+
+  {% for product in products %}
+  <div class="bg-white w-full max-w-2xl rounded-2xl shadow-xl overflow-hidden">
+    <div class="h-[500px] sm:h-[600px]">
+      <img class="w-full h-full object-cover" src="{{ product.url_photo }}" alt="Фото товара">
+    </div>
+    <div class="p-6" style="background-color: #A87C6D;">
+       <h2 class="text-3xl font-bold mb-2" style="color: #fff8f0;">Шарики с гелием</h2>
+      <p class="text-base mb-4" style="color: #fff8f0;">
+        Набор из 5 воздушных шаров с гелием и лентами. Отлично подойдёт для любого праздника — создаёт атмосферу и радость!
+      </p>
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="text-3xl font-bold" style="color: #eecfc4;">790 ₽</span>
+        <span class="text-lg line-through" style="color: #bdbdbd;">990 ₽</span>
+      </div>
+
+      <!-- Форма -->
+      <form id="add-to-cart-form" action="http://127.0.0.1:8000/users/add_favorites_product/{{ product.id }}" method="POST" class="add-to-cart-form">
+        <button
+          type="submit"
+          style="background: linear-gradient(0.75turn, rgba(255, 154, 139, 1) 0%, rgba(235, 115, 137, 1) 100%);"
+          class="text-white w-full py-3 rounded-xl text-xl font-semibold hover:opacity-90 transition"
+        >
+          В корзину
+        </button>
+      </form>
+
+    </div>
+  </div>
+  {% endfor %}
+  <!-- Уведомление -->
+
+  <!-- Уведомление -->
+  <div id="notification" class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-pink-400 text-white py-4 px-8 rounded-2xl shadow-2xl text-xl flex items-center space-x-3 animate-fade-in-out">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m13-9l2 9m-5-9v9m-4-9v9m-4-9v9" />
+    </svg>
+    <span>Товар добавлен в корзину</span>
+  </div>
+
+  <style>
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translate(-50%, -60%); }
+      10% { opacity: 1; transform: translate(-50%, -50%); }
+      90% { opacity: 1; transform: translate(-50%, -50%); }
+      100% { opacity: 0; transform: translate(-50%, -60%); }
+    }
+    .animate-fade-in-out {
+      animation: fadeInOut 2s forwards;
+    }
+  </style>
+
+
+  <script>
+  // Проверка сразу при загрузке
+  if (sessionStorage.getItem('need-refresh') === '1') {
+    sessionStorage.removeItem('need-refresh');
+    window.location.reload();
+  }
+
+  const form = document.getElementById('add-to-cart-form');
+  const notification = document.getElementById('notification');
+
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const url = form.getAttribute('action');
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        // Уведомление
+        notification.classList.remove('hidden');
+        setTimeout(() => {
+          notification.classList.add('hidden');
+        }, 2000);
+
+        // Ставим флажок
+        sessionStorage.setItem('need-refresh', '1');
+      } else {
+        console.error('Ошибка отправки формы:', response.status);
+      }
+    } catch (error) {
+      console.error('Ошибка сети:', error);
+    }
+  });
+
+  // Когда пользователь уходит со страницы — ставим флаг
+  window.addEventListener('beforeunload', function() {
+    if (sessionStorage.getItem('need-refresh') === '1') {
+      // оставляем флаг
+    }
+  });
+</script>
+</body>
+</html>
