@@ -99,6 +99,24 @@ async def catalog(
 
     return response
 
+@app.get('/products/{id}')
+async def get_products_id(
+        id: int,
+        request: Request,
+        counts=Depends(get_count_user_prod),
+        session: AsyncSession = Depends(get_async_session),
+
+):
+    products = await ProductsService.get_product(id=id, session=session)
+    return templates.TemplateResponse(
+        request=request,
+        name="products_id.html",
+        context={
+            'products': products,
+            'counts': counts,
+        }
+    )
+
 
 @app.get(
     "/categories/{id}/products",
